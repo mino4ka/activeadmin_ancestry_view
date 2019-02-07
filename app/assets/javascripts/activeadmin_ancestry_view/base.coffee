@@ -1,4 +1,4 @@
-$(document).on 'ready page:load turbolinks:load', ->
+$(document).ready ->
   CSSRule =
     get: (ruleName, deleteFlag) ->
       ruleName = ruleName.toLowerCase()
@@ -13,7 +13,7 @@ $(document).on 'ready page:load turbolinks:load', ->
               cssRule = styleSheet.cssRules[ii]
             else
               cssRule = styleSheet.rules[ii]
-            if cssRule
+            if cssRule && cssRule.selectorText
               if cssRule.selectorText.toLowerCase() == ruleName
                 if deleteFlag == 'delete'
                   if styleSheet.cssRules
